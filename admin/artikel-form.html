@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Artikel - Admin Jalankebromo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: { colors: { brand: { orange: '#F28C28' } }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
+    </script>
+  </head>
+  <body data-admin-page="artikel" data-admin-title="Tambah / Edit Artikel">
+    <div id="admin-page-content">
+      <a href="./artikel.html" class="mb-4 inline-flex text-sm text-brand-orange hover:underline">&larr; Kembali</a>
+      <form data-admin-entity="article" data-admin-form-back="./artikel.html" class="max-w-4xl space-y-6 rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+        <div><label class="text-sm font-medium">Judul *</label><input name="title" required class="mt-2 w-full rounded-lg border px-3 py-2 text-sm" /></div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div><label class="text-sm font-medium">Tanggal terbit</label><input name="published_at" type="date" class="mt-2 w-full rounded-lg border px-3 py-2 text-sm" /></div>
+          <div><label class="text-sm font-medium">Status</label><select name="publish_status" class="mt-2 w-full rounded-lg border px-3 py-2 text-sm"><option>Terbit</option><option>Draft</option></select></div>
+        </div>
+        <div>
+          <label class="text-sm font-medium">Gambar utama (thumbnail di daftar artikel)</label>
+          <input name="cover_image_url" type="url" class="mt-2 w-full rounded-lg border px-3 py-2 text-sm" placeholder="https://..." />
+          <p class="mt-1 text-xs text-neutral-500">Tampil di kartu artikel. Bisa sama dengan foto pertama di isi artikel.</p>
+        </div>
+
+        <div>
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <label class="text-sm font-medium">Isi artikel *</label>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" data-add-block="paragraph" class="rounded-lg border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium hover:bg-neutral-50">+ Paragraf</button>
+              <button type="button" data-add-block="heading" class="rounded-lg border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium hover:bg-neutral-50">+ Judul bagian</button>
+              <button type="button" data-add-block="image" class="rounded-lg border border-neutral-200 bg-white px-3 py-1.5 text-xs font-medium hover:bg-neutral-50">+ Foto</button>
+            </div>
+          </div>
+          <p class="mt-1 text-xs text-neutral-500">
+            Susun seperti artikel blog: foto → paragraf → foto lagi. Gunakan tombol ↑↓ untuk mengubah urutan.
+          </p>
+          <div id="article-blocks" class="mt-3 space-y-3"></div>
+          <textarea name="content" class="hidden" aria-hidden="true"></textarea>
+        </div>
+
+        <div><label class="text-sm font-medium">Tag (pisahkan koma)</label><input name="tags" class="mt-2 w-full rounded-lg border px-3 py-2 text-sm" /></div>
+        <div class="flex gap-3">
+          <button type="submit" class="rounded-lg bg-brand-orange px-6 py-2.5 text-sm font-semibold text-white hover:brightness-95">Simpan Artikel</button>
+          <a href="./artikel.html" class="rounded-lg border px-6 py-2.5 text-sm font-medium">Batal</a>
+        </div>
+      </form>
+    </div>
+    <script src="../js/api-config.js"></script>
+    <script src="../js/article-content.js"></script>
+    <script src="./js/admin-api.js"></script>
+    <script src="./js/admin-toast.js"></script>
+    <script src="./js/admin-auth.js"></script>
+    <script src="./js/admin-shell.js"></script>
+    <script src="./js/admin-article-editor.js"></script>
+    <script src="./js/admin-forms.js"></script>
+  </body>
+</html>

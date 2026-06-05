@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pesanan - Admin Jalankebromo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: { colors: { brand: { orange: '#F28C28' } }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
+    </script>
+  </head>
+  <body data-admin-page="pesanan" data-admin-title="Pesanan">
+    <div id="admin-page-content">
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex flex-wrap gap-2">
+          <select id="orders-filter-status" class="rounded-lg border border-neutral-200 px-3 py-2 text-sm">
+            <option value="">Semua status</option>
+            <option value="pending">Menunggu</option>
+            <option value="dp_paid">Lunas DP</option>
+            <option value="paid">Lunas</option>
+            <option value="completed">Selesai</option>
+            <option value="cancelled">Batal</option>
+          </select>
+          <select id="orders-filter-type" class="rounded-lg border border-neutral-200 px-3 py-2 text-sm">
+            <option value="">Semua jenis</option>
+            <option value="package">Paket Wisata</option>
+            <option value="car_rental">Sewa Mobil</option>
+          </select>
+        </div>
+        <input id="orders-filter-search" type="search" placeholder="Cari nama / kode pesanan..." class="w-full max-w-xs rounded-lg border border-neutral-200 px-3 py-2 text-sm sm:w-64" />
+      </div>
+      <div class="overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm">
+        <table class="admin-table w-full text-sm">
+          <thead class="border-b bg-neutral-50 text-left">
+            <tr><th class="px-5 py-3">ID</th><th class="px-5 py-3">Tanggal</th><th class="px-5 py-3">Pelanggan</th><th class="px-5 py-3">Jenis</th><th class="px-5 py-3">Total</th><th class="px-5 py-3">Status</th><th class="px-5 py-3 text-right">Aksi</th></tr>
+          </thead>
+          <tbody class="divide-y"></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="../js/api-config.js"></script>
+    <script src="./js/admin-api.js"></script>
+    <script src="./js/admin-toast.js"></script>
+    <script src="./js/admin-auth.js"></script>
+    <script src="./js/admin-shell.js"></script>
+    <script src="./js/admin-pages.js"></script>
+    <script src="./js/admin-ui.js"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+/* Tambahan kecil di luar utilitas Tailwind */
+.hero-card-stack {
+  perspective: 800px;
+}
+
+.gallery-masonry-brick {
+  break-inside: avoid;
+}
+
+.article-body h2 {
+  scroll-margin-top: 6rem;
+}

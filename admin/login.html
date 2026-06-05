@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Admin - Jalankebromo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { brand: { orange: '#F28C28' } },
+            fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-orange-50 via-white to-neutral-100 font-sans antialiased">
+    <div class="flex min-h-screen flex-col items-center justify-center px-4 py-12">
+      <a href="../index.html" class="mb-8 flex items-center gap-2.5">
+        <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-orange text-white shadow-md ring-4 ring-orange-100">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4L4 20h16L12 4z" /></svg>
+        </span>
+        <span class="text-lg font-bold text-neutral-900">Jalankebromo</span>
+      </a>
+
+      <div class="w-full max-w-md rounded-2xl border border-neutral-100 bg-white p-8 shadow-xl shadow-neutral-200/60 sm:p-10">
+        <h1 class="text-center text-2xl font-bold text-neutral-900">Masuk Admin</h1>
+        <p class="mt-2 text-center text-sm text-neutral-500">Kelola paket, artikel, mobil, dan pesanan dari satu tempat.</p>
+
+        <p id="login-error" class="mt-4 hidden rounded-lg bg-red-50 px-3 py-2 text-center text-sm text-red-700"></p>
+
+        <form id="admin-login-form" class="mt-8 space-y-5">
+          <div>
+            <label class="text-sm font-medium text-neutral-700" for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              autocomplete="username"
+              value="admin@jalankebromo.com"
+              class="mt-2 w-full rounded-lg border border-neutral-200 px-4 py-2.5 text-sm focus:border-brand-orange focus:outline-none focus:ring-2 focus:ring-brand-orange/20"
+              placeholder="admin@jalankebromo.com"
+            />
+          </div>
+          <div>
+            <label class="text-sm font-medium text-neutral-700" for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              required
+              autocomplete="current-password"
+              value="admin123"
+              class="mt-2 w-full rounded-lg border border-neutral-200 px-4 py-2.5 text-sm focus:border-brand-orange focus:outline-none focus:ring-2 focus:ring-brand-orange/20"
+              placeholder="••••••••"
+            />
+          </div>
+          <label class="flex items-center gap-2 text-sm text-neutral-600">
+            <input type="checkbox" name="remember" class="rounded border-neutral-300 text-brand-orange focus:ring-brand-orange" checked />
+            Ingat saya di perangkat ini
+          </label>
+          <button
+            type="submit"
+            class="w-full rounded-lg bg-brand-orange py-3 text-sm font-semibold text-white transition hover:brightness-95"
+          >
+            Masuk Dashboard
+          </button>
+        </form>
+
+        <p class="mt-6 rounded-lg bg-neutral-50 px-3 py-2 text-center text-xs text-neutral-500">
+          Demo frontend: isi email &amp; password apa saja untuk masuk. Backend akan dihubungkan nanti.
+        </p>
+      </div>
+
+      <p class="mt-8 text-center text-xs text-neutral-400">&copy; PT. Jalankebromo Tour Organizer</p>
+    </div>
+
+    <script src="../js/api-config.js"></script>
+    <script src="./js/admin-api.js"></script>
+    <script src="./js/admin-toast.js"></script>
+    <script src="./js/admin-auth.js"></script>
+  </body>
+</html>

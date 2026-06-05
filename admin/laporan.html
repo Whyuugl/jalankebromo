@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan - Admin Jalankebromo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: { colors: { brand: { orange: '#F28C28' } }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
+    </script>
+  </head>
+  <body data-admin-page="laporan" data-admin-title="Laporan">
+    <div id="admin-page-content">
+      <div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+        <div class="flex flex-col gap-2">
+          <label class="text-sm font-semibold text-neutral-700">Bulan</label>
+          <input id="report-month" type="month" class="rounded-lg border border-neutral-200 px-3 py-2 text-sm" />
+        </div>
+        <button type="button" id="report-refresh" class="rounded-lg bg-brand-orange px-4 py-2.5 text-sm font-semibold text-white hover:brightness-95">
+          Muat laporan
+        </button>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div class="rounded-xl border border-neutral-200 bg-white p-5 shadow-sm">
+          <p class="text-sm text-neutral-500">Kunjungan bulan terpilih</p>
+          <p id="rep-visits-current" class="mt-2 text-3xl font-bold">—</p>
+          <p id="rep-visits-pct" class="mt-1 text-xs text-emerald-600">—</p>
+        </div>
+        <div class="rounded-xl border border-neutral-200 bg-white p-5 shadow-sm">
+          <p class="text-sm text-neutral-500">Pesanan bulan terpilih</p>
+          <p id="rep-orders-current" class="mt-2 text-3xl font-bold">—</p>
+          <p id="rep-orders-pct" class="mt-1 text-xs text-emerald-600">—</p>
+        </div>
+        <div class="rounded-xl border border-neutral-200 bg-white p-5 shadow-sm">
+          <p class="text-sm text-neutral-500">Pendapatan terbayar</p>
+          <p id="rep-revenue-current" class="mt-2 text-3xl font-bold text-emerald-600">—</p>
+          <p id="rep-revenue-pct" class="mt-1 text-xs text-emerald-600">—</p>
+        </div>
+        <div class="rounded-xl border border-neutral-200 bg-white p-5 shadow-sm">
+          <p class="text-sm text-neutral-500">Reschedule menunggu</p>
+          <p id="rep-pending-reschedule-current" class="mt-2 text-3xl font-bold">—</p>
+          <p class="mt-1 text-xs text-neutral-500">Pengajuan diajukan pada bulan ini</p>
+        </div>
+      </div>
+
+      <div class="mt-8 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm">
+        <div class="flex items-center justify-between border-b border-neutral-100 bg-neutral-50/60 px-5 py-4">
+          <p class="font-semibold text-neutral-800">Tren 6 bulan</p>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="admin-table w-full text-sm">
+            <thead class="bg-neutral-50 text-left">
+              <tr>
+                <th class="px-5 py-3">Bulan</th>
+                <th class="px-5 py-3">Kunjungan</th>
+                <th class="px-5 py-3">Pesanan</th>
+                <th class="px-5 py-3">Pendapatan</th>
+              </tr>
+            </thead>
+            <tbody id="rep-trend-tbody" class="divide-y">
+              <tr><td colspan="4" class="px-5 py-8 text-center text-sm text-neutral-500">Memuat...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/api-config.js"></script>
+    <script src="./js/admin-api.js"></script>
+    <script src="./js/admin-toast.js"></script>
+    <script src="./js/admin-auth.js"></script>
+    <script src="./js/admin-shell.js"></script>
+    <script src="./js/admin-report.js"></script>
+    <script src="./js/admin-ui.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Paket - Admin Jalankebromo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: { colors: { brand: { orange: '#F28C28' } }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
+    </script>
+  </head>
+  <body data-admin-page="paket" data-admin-title="Tambah / Edit Paket">
+    <div id="admin-page-content">
+      <a href="./paket.html" class="mb-4 inline-flex text-sm text-brand-orange hover:underline">&larr; Kembali</a>
+      <form data-admin-entity="package" data-admin-form-back="./paket.html" class="max-w-3xl space-y-6 rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+        <div><label class="text-sm font-medium">Nama Paket *</label><input name="title" required class="mt-2 w-full rounded-lg border px-3 py-2 text-sm" /></div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div><label class="text-sm font-medium">Durasi</label><input name="duration_label" class="mt-2 w-full rounded-lg border px-3 py-2 text-sm" placeholder="contoh: 1 Hari, 3 Hari 2 Malam" /></div>
+          <div><label class="text-sm font-medium">Harga (Rp) *</label><input name="price" type="number" required class="mt-2 w-full rounded-lg border px-3 py-2 text-sm" /></div>
+        </div>
+        <div><label class="text-sm font-medium">Kategori</label><input name="category" class="mt-2 w-full rounded-lg border px-3 py-2 text-sm" value="Open Trip" /></div>
+        <div><label class="text-sm font-medium">Deskripsi singkat</label><textarea name="short_description" rows="4" class="mt-2 w-full rounded-lg border px-3 py-2 text-sm"></textarea></div>
+        <div><label class="text-sm font-medium">Itinerary</label><textarea name="itinerary" rows="5" class="mt-2 w-full rounded-lg border px-3 py-2 text-sm" placeholder="Satu baris per aktivitas..."></textarea></div>
+        <div><label class="text-sm font-medium">URL gambar utama</label><input name="main_image_url" class="mt-2 w-full rounded-lg border px-3 py-2 text-sm" placeholder="https://..." /></div>
+        <div>
+          <label class="text-sm font-medium">Status</label>
+          <select name="publish_status" class="mt-2 w-full rounded-lg border px-3 py-2 text-sm">
+            <option selected>Aktif</option>
+            <option>Draft</option>
+          </select>
+          <p class="mt-1 text-xs text-neutral-500">Hanya paket <strong>Aktif</strong> yang tampil di halaman Paket Wisata.</p>
+        </div>
+        <div class="flex gap-3 pt-2">
+          <button type="submit" class="rounded-lg bg-brand-orange px-6 py-2.5 text-sm font-semibold text-white hover:brightness-95">Simpan Paket</button>
+          <a href="./paket.html" class="rounded-lg border px-6 py-2.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50">Batal</a>
+        </div>
+      </form>
+    </div>
+    <script src="../js/api-config.js"></script>
+    <script src="./js/admin-api.js"></script>
+    <script src="./js/admin-toast.js"></script>
+    <script src="./js/admin-auth.js"></script>
+    <script src="./js/admin-shell.js"></script>
+    <script src="./js/admin-forms.js"></script>
+  </body>
+</html>

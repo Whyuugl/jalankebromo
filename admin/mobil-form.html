@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Mobil - Admin Jalankebromo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: { colors: { brand: { orange: '#F28C28' } }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
+    </script>
+  </head>
+  <body data-admin-page="mobil" data-admin-title="Tambah / Edit Mobil">
+    <div id="admin-page-content">
+      <a href="./mobil.html" class="mb-4 inline-flex text-sm text-brand-orange hover:underline">&larr; Kembali</a>
+      <form data-admin-entity="car" data-admin-form-back="./mobil.html" class="max-w-3xl space-y-6 rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+        <div><label class="text-sm font-medium">Nama mobil *</label><input name="name" required class="mt-2 w-full rounded-lg border px-3 py-2 text-sm" /></div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div><label class="text-sm font-medium">Kapasitas</label><input name="capacity_label" class="mt-2 w-full rounded-lg border px-3 py-2 text-sm" placeholder="6+1" /></div>
+          <div><label class="text-sm font-medium">Harga per hari (Rp)</label><input name="price_per_day" type="number" required class="mt-2 w-full rounded-lg border px-3 py-2 text-sm" /></div>
+        </div>
+        <div><label class="text-sm font-medium">Transmisi</label><select name="transmission" class="mt-2 w-full rounded-lg border px-3 py-2 text-sm"><option>Manual</option><option>Matic</option></select></div>
+        <div><label class="text-sm font-medium">URL gambar</label><input name="main_image_url" class="mt-2 w-full rounded-lg border px-3 py-2 text-sm" placeholder="https://..." /></div>
+        <div><label class="text-sm font-medium">Status</label><select name="publish_status" class="mt-2 w-full rounded-lg border px-3 py-2 text-sm"><option>Tersedia</option><option>Nonaktif</option></select></div>
+        <div class="flex gap-3">
+          <button type="submit" class="rounded-lg bg-brand-orange px-6 py-2.5 text-sm font-semibold text-white hover:brightness-95">Simpan Mobil</button>
+          <a href="./mobil.html" class="rounded-lg border px-6 py-2.5 text-sm font-medium">Batal</a>
+        </div>
+      </form>
+    </div>
+    <script src="../js/api-config.js"></script>
+    <script src="./js/admin-api.js"></script>
+    <script src="./js/admin-toast.js"></script>
+    <script src="./js/admin-auth.js"></script>
+    <script src="./js/admin-shell.js"></script>
+    <script src="./js/admin-forms.js"></script>
+  </body>
+</html>

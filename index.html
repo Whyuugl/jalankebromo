@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paling Hobby Traveling — Paket Wisata Bromo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                orange: '#F28C28',
+                price: '#3B82F6',
+              },
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="css/custom.css" />
+  </head>
+  <body class="bg-white font-sans text-neutral-800 antialiased">
+    <!-- ========== Header ========== -->
+    <header
+      class="sticky top-0 z-50 border-b border-neutral-100 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80"
+    >
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <a href="#beranda" class="flex items-center gap-2.5" aria-label="Beranda">
+          <span
+            class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-orange text-white shadow-sm ring-4 ring-orange-50"
+          >
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M12 4L4 20h16L12 4zm0 4.5l5.2 9.5H6.8L12 8.5z"
+                fill="currentColor"
+                opacity=".95"
+              />
+            </svg>
+          </span>
+        </a>
+
+        <nav class="ml-auto mr-6 hidden items-center gap-8 md:flex" aria-label="Utama">
+          <a
+            href="#beranda"
+            class="text-sm font-medium text-brand-orange transition-colors hover:text-brand-orange"
+            >Home</a
+          >
+          <a
+            href="./paket-wisata.html"
+            class="text-sm font-medium text-neutral-700 transition-colors hover:text-brand-orange"
+            >Paket Wisata Bromo Malang</a
+          >
+          <a
+            href="./sewa-mobil.html"
+            class="text-sm font-medium text-neutral-700 transition-colors hover:text-brand-orange"
+            >Sewa Mobil Malang</a
+          >
+          <a href="./artikel.html" class="text-sm font-medium text-neutral-700 transition-colors hover:text-brand-orange"
+            >Artikel</a
+          >
+        </nav>
+
+        <div class="relative shrink-0" data-profile-menu-wrap>
+          <button
+            type="button"
+            data-profile-menu-trigger
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-neutral-600 transition hover:border-brand-orange hover:text-brand-orange"
+            aria-label="Profil"
+            aria-expanded="false"
+            aria-haspopup="true"
+          >
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+              />
+            </svg>
+          </button>
+          <div
+            data-profile-menu-panel
+            role="menu"
+            class="absolute right-0 top-full z-[60] mt-2 hidden min-w-[200px] overflow-hidden rounded-xl border border-neutral-200 bg-white py-1 shadow-lg"
+          >
+            <a
+              role="menuitem"
+              href="./cek-pesanan.html"
+              class="block px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50"
+              >Pesanan Saya</a
+            >
+            <a
+              role="menuitem"
+              href="./reschedule.html"
+              class="block px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50"
+              >Reschedule</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile nav -->
+      <div class="flex flex-wrap gap-x-4 gap-y-2 border-t border-neutral-100 px-4 py-3 md:hidden">
+        <a href="#beranda" class="text-sm font-medium text-brand-orange">Home</a>
+        <a href="./paket-wisata.html" class="text-sm font-medium text-neutral-700"
+          >Paket Wisata Bromo Malang</a
+        >
+        <a href="./sewa-mobil.html" class="text-sm font-medium text-neutral-700">Sewa Mobil Malang</a>
+        <a href="./artikel.html" class="text-sm font-medium text-neutral-700">Artikel</a>
+        <a href="./cek-pesanan.html" class="text-sm font-medium text-neutral-700">Pesanan Saya</a>
+        <a href="./reschedule.html" class="text-sm font-medium text-neutral-700">Reschedule</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ========== Hero ========== -->
+      <section id="beranda" class="scroll-mt-28 border-b border-neutral-50 bg-white">
+        <div
+          class="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-20"
+        >
+          <div class="max-w-xl">
+            <h1 class="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl lg:text-[2.5rem] lg:leading-[1.15]">
+              Paket Wisata Bromo Favorit si
+              <span class="text-brand-orange">Paling Hobby Traveling</span>
+            </h1>
+            <p class="mt-5 text-base leading-relaxed text-neutral-500">
+              Temukan pengalaman terbaik menjelajahi kawasan Bromo dan Malang bersama tim profesional
+              kami. Rute fleksibel, harga transparan, dan kenangan liburan yang tak terlupakan untuk
+              Anda dan keluarga.
+            </p>
+            <p class="mt-3 text-base leading-relaxed text-neutral-500">
+              Dari sunrise epik di Penanjakan hingga kota wisata Batu—semua dirancang nyaman,
+              aman, dan penuh cerita.
+            </p>
+          </div>
+
+          <div class="hero-card-stack mx-auto flex w-full max-w-xl items-start justify-end gap-4 lg:mx-0 lg:justify-self-end">
+            <div class="w-[31%] overflow-hidden rounded-2xl bg-neutral-100 shadow-xl ring-4 ring-white">
+              <img
+                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=480&q=80"
+                alt="Pemandangan pegunungan"
+                class="aspect-[3/5] w-full object-cover"
+                width="220"
+                height="340"
+              />
+            </div>
+            <div class="mt-6 w-[31%] overflow-hidden rounded-2xl bg-neutral-100 shadow-lg ring-4 ring-white">
+              <img
+                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=480&q=80"
+                alt="Pantai dan kota pesisir"
+                class="aspect-[3/5] w-full object-cover"
+                width="220"
+                height="340"
+              />
+            </div>
+            <div class="mt-12 w-[31%] overflow-hidden rounded-2xl bg-neutral-100 shadow-md ring-4 ring-white">
+              <img
+                src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=480&q=80"
+                alt="Perjalanan kota"
+                class="aspect-[3/5] w-full object-cover"
+                width="220"
+                height="340"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Paket Populer ========== -->
+      <section id="paket-bromo-malang" class="scroll-mt-28 bg-white px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="max-w-2xl">
+            <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">Paket Populer</h2>
+            <p class="mt-2 text-sm text-neutral-500 sm:text-base">
+              Pilihan favorit traveler untuk wisata Bromo &amp; sekitarnya—siap berangkat kapan saja.
+            </p>
+          </div>
+
+          <div id="home-paket-populer-grid" class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <!-- card -->
+            <article
+              class="overflow-hidden rounded-2xl border border-neutral-100 bg-white p-3 shadow-sm transition hover:shadow-md"
+            >
+              <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+                <img
+                  src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&q=80"
+                  alt=""
+                  class="h-full w-full object-cover"
+                  width="600"
+                  height="450"
+                />
+              </div>
+              <div class="px-1 pb-1 pt-2">
+                <p class="flex items-center gap-1.5 text-sm text-neutral-500">
+                  <svg class="h-4 w-4 text-brand-orange" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  Bromo
+                </p>
+                <h3 class="mt-1 font-semibold text-neutral-900">Tour Bromo Sunrise</h3>
+                <p class="mt-3 text-lg font-semibold text-emerald-600">Rp 1.400.000<span class="text-sm font-normal text-emerald-600"> /person</span></p>
+              </div>
+            </article>
+
+            <article
+              class="overflow-hidden rounded-2xl border border-neutral-100 bg-white p-3 shadow-sm transition hover:shadow-md"
+            >
+              <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+                <img
+                  src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=600&q=80"
+                  alt=""
+                  class="h-full w-full object-cover"
+                  width="600"
+                  height="450"
+                />
+              </div>
+              <div class="px-1 pb-1 pt-2">
+                <p class="flex items-center gap-1.5 text-sm text-neutral-500">
+                  <svg class="h-4 w-4 text-brand-orange" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  Malang
+                </p>
+                <h3 class="mt-1 font-semibold text-neutral-900">City Tour Malang Batu</h3>
+                <p class="mt-3 text-lg font-semibold text-emerald-600">Rp 980.000<span class="text-sm font-normal text-emerald-600"> /person</span></p>
+              </div>
+            </article>
+
+            <article
+              class="overflow-hidden rounded-2xl border border-neutral-100 bg-white p-3 shadow-sm transition hover:shadow-md"
+            >
+              <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+                <img
+                  src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80"
+                  alt=""
+                  class="h-full w-full object-cover"
+                  width="600"
+                  height="450"
+                />
+              </div>
+              <div class="px-1 pb-1 pt-2">
+                <p class="flex items-center gap-1.5 text-sm text-neutral-500">
+                  <svg class="h-4 w-4 text-brand-orange" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  Bromo — Malang
+                </p>
+                <h3 class="mt-1 font-semibold text-neutral-900">Paket Bromo Malang 3D2N</h3>
+                <p class="mt-3 text-lg font-semibold text-emerald-600">Rp 2.350.000<span class="text-sm font-normal text-emerald-600"> /person</span></p>
+              </div>
+            </article>
+
+            <article
+              class="overflow-hidden rounded-2xl border border-neutral-100 bg-white p-3 shadow-sm transition hover:shadow-md"
+            >
+              <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+                <img
+                  src="https://images.unsplash.com/photo-1540979388789-6cee28a1cdc3?w=600&q=80"
+                  alt=""
+                  class="h-full w-full object-cover"
+                  width="600"
+                  height="450"
+                />
+              </div>
+              <div class="px-1 pb-1 pt-2">
+                <p class="flex items-center gap-1.5 text-sm text-neutral-500">
+                  <svg class="h-4 w-4 text-brand-orange" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  Tumpak Sewu
+                </p>
+                <h3 class="mt-1 font-semibold text-neutral-900">Bromo &amp; Air Terjun Sewu</h3>
+                <p class="mt-3 text-lg font-semibold text-emerald-600">Rp 1.850.000<span class="text-sm font-normal text-emerald-600"> /person</span></p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Paket Wisata ========== -->
+      <section id="paket-wisata" class="scroll-mt-28 bg-neutral-50/80 px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <div class="max-w-2xl">
+              <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">Paket Wisata</h2>
+              <p class="mt-2 text-sm text-neutral-500 sm:text-base">
+                Katalog lengkap perjalanan terjadwal dan private trip sesuai kebutuhan Anda.
+              </p>
+            </div>
+            <a
+              href="./paket-wisata.html"
+              class="text-sm font-semibold text-brand-orange hover:underline"
+              >Lihat Semua</a
+            >
+          </div>
+
+          <div id="home-paket-wisata-grid" class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <article class="overflow-hidden rounded-2xl border border-neutral-100 bg-white p-3 shadow-sm transition hover:shadow-md">
+              <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+                <img src="https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=600&q=80" alt="" class="h-full w-full object-cover" />
+              </div>
+              <div class="px-1 pb-1 pt-2">
+                <p class="flex items-center gap-1.5 text-sm text-neutral-500">
+                  <svg class="h-4 w-4 text-brand-orange" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                  Bromo
+                </p>
+                <h3 class="mt-1 font-semibold text-neutral-900">Midnight Bromo</h3>
+                <p class="mt-3 text-lg font-semibold text-emerald-600">Rp 850.000<span class="text-sm font-normal text-emerald-600"> /person</span></p>
+              </div>
+            </article>
+            <article class="overflow-hidden rounded-2xl border border-neutral-100 bg-white p-3 shadow-sm transition hover:shadow-md">
+              <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80" alt="" class="h-full w-full object-cover" />
+              </div>
+              <div class="px-1 pb-1 pt-2">
+                <p class="flex items-center gap-1.5 text-sm text-neutral-500">
+                  <svg class="h-4 w-4 text-brand-orange" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                  Ranu Kumbolo
+                </p>
+                <h3 class="mt-1 font-semibold text-neutral-900">Trekking Semeru 3D2N</h3>
+                <p class="mt-3 text-lg font-semibold text-emerald-600">Rp 3.200.000<span class="text-sm font-normal text-emerald-600"> /person</span></p>
+              </div>
+            </article>
+            <article class="overflow-hidden rounded-2xl border border-neutral-100 bg-white p-3 shadow-sm transition hover:shadow-md">
+              <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&q=80" alt="" class="h-full w-full object-cover" />
+              </div>
+              <div class="px-1 pb-1 pt-2">
+                <p class="flex items-center gap-1.5 text-sm text-neutral-500">
+                  <svg class="h-4 w-4 text-brand-orange" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                  Coban Rondo
+                </p>
+                <h3 class="mt-1 font-semibold text-neutral-900">Family Trip Coban Rondo</h3>
+                <p class="mt-3 text-lg font-semibold text-emerald-600">Rp 750.000<span class="text-sm font-normal text-emerald-600"> /person</span></p>
+              </div>
+            </article>
+            <article class="overflow-hidden rounded-2xl border border-neutral-100 bg-white p-3 shadow-sm transition hover:shadow-md">
+              <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+                <img src="https://images.unsplash.com/photo-1433838552652-f9a46b332c40?w=600&q=80" alt="" class="h-full w-full object-cover" />
+              </div>
+              <div class="px-1 pb-1 pt-2">
+                <p class="flex items-center gap-1.5 text-sm text-neutral-500">
+                  <svg class="h-4 w-4 text-brand-orange" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                  Pantai Balekambang
+                </p>
+                <h3 class="mt-1 font-semibold text-neutral-900">Pantai &amp; Goa Cina</h3>
+                <p class="mt-3 text-lg font-semibold text-emerald-600">Rp 620.000<span class="text-sm font-normal text-emerald-600"> /person</span></p>
+              </div>
+            </article>
+            <article class="overflow-hidden rounded-2xl border border-neutral-100 bg-white p-3 shadow-sm transition hover:shadow-md">
+              <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+                <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80" alt="" class="h-full w-full object-cover" />
+              </div>
+              <div class="px-1 pb-1 pt-2">
+                <p class="flex items-center gap-1.5 text-sm text-neutral-500">
+                  <svg class="h-4 w-4 text-brand-orange" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                  Kawah Ijen
+                </p>
+                <h3 class="mt-1 font-semibold text-neutral-900">Ijen Blue Fire Trip</h3>
+                <p class="mt-3 text-lg font-semibold text-emerald-600">Rp 1.650.000<span class="text-sm font-normal text-emerald-600"> /person</span></p>
+              </div>
+            </article>
+            <article class="overflow-hidden rounded-2xl border border-neutral-100 bg-white p-3 shadow-sm transition hover:shadow-md">
+              <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+                <img src="https://images.unsplash.com/photo-1465189684280-6a8bd9d33687?w=600&q=80" alt="" class="h-full w-full object-cover" />
+              </div>
+              <div class="px-1 pb-1 pt-2">
+                <p class="flex items-center gap-1.5 text-sm text-neutral-500">
+                  <svg class="h-4 w-4 text-brand-orange" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                  Malang
+                </p>
+                <h3 class="mt-1 font-semibold text-neutral-900">Eco Village &amp; Kebun Teh</h3>
+                <p class="mt-3 text-lg font-semibold text-emerald-600">Rp 890.000<span class="text-sm font-normal text-emerald-600"> /person</span></p>
+              </div>
+            </article>
+            <article class="overflow-hidden rounded-2xl border border-neutral-100 bg-white p-3 shadow-sm transition hover:shadow-md">
+              <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+                <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80" alt="" class="h-full w-full object-cover" />
+              </div>
+              <div class="px-1 pb-1 pt-2">
+                <p class="flex items-center gap-1.5 text-sm text-neutral-500">
+                  <svg class="h-4 w-4 text-brand-orange" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                  Bromo
+                </p>
+                <h3 class="mt-1 font-semibold text-neutral-900">Photography Private Tour</h3>
+                <p class="mt-3 text-lg font-semibold text-emerald-600">Rp 2.100.000<span class="text-sm font-normal text-emerald-600"> /person</span></p>
+              </div>
+            </article>
+            <article class="overflow-hidden rounded-2xl border border-neutral-100 bg-white p-3 shadow-sm transition hover:shadow-md">
+              <div class="aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+                <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?w=600&q=80" alt="" class="h-full w-full object-cover" />
+              </div>
+              <div class="px-1 pb-1 pt-2">
+                <p class="flex items-center gap-1.5 text-sm text-neutral-500">
+                  <svg class="h-4 w-4 text-brand-orange" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                  Surabaya
+                </p>
+                <h3 class="mt-1 font-semibold text-neutral-900">City Heritage 1 Day</h3>
+                <p class="mt-3 text-lg font-semibold text-emerald-600">Rp 550.000<span class="text-sm font-normal text-emerald-600"> /person</span></p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Sewa Mobil ========== -->
+      <section id="sewa-mobil" class="scroll-mt-28 border-y border-orange-100 bg-gradient-to-r from-orange-50 to-white px-4 py-12 sm:px-6 lg:px-8">
+        <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+          <div>
+            <h2 class="text-xl font-bold text-neutral-900 sm:text-2xl">Sewa Mobil Malang</h2>
+            <p class="mt-2 max-w-xl text-sm text-neutral-600">
+              Driver ramah, armada terawat, BBM &amp; tol bisa disesuaikan—cocok untuk rute Bromo,
+              bandara, maupun kota wisata.
+            </p>
+          </div>
+          <a
+            href="#"
+            class="inline-flex shrink-0 items-center justify-center rounded-full bg-brand-orange px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#e07d22]"
+            >Hubungi Kami</a
+          >
+        </div>
+      </section>
+
+      <!-- ========== Artikel ========== -->
+      <section id="artikel" class="scroll-mt-28 bg-white px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <div class="max-w-2xl">
+              <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">Artikel dan Tips</h2>
+              <p class="mt-2 text-sm text-neutral-500 sm:text-base">
+                Panduan ringan sebelum berangkat—cuaca, perlengkapan, dan rute terbaik ke Bromo.
+              </p>
+            </div>
+            <a href="./artikel.html" class="text-sm font-semibold text-brand-orange hover:underline">Lihat Semua</a>
+          </div>
+
+          <div id="home-artikel-grid" class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="group overflow-hidden rounded-2xl border border-neutral-100 bg-white shadow-sm transition hover:shadow-md">
+              <div class="aspect-[16/10] overflow-hidden bg-neutral-100">
+                <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=800&q=80" alt="" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" />
+              </div>
+              <div class="p-5">
+                <h3 class="font-semibold leading-snug text-neutral-900">
+                  Where can I get some the countries that we can flight to?
+                </h3>
+                <p class="mt-2 text-sm text-neutral-400">September 15, 2023</p>
+              </div>
+            </article>
+            <article class="group overflow-hidden rounded-2xl border border-neutral-100 bg-white shadow-sm transition hover:shadow-md">
+              <div class="aspect-[16/10] overflow-hidden bg-neutral-100">
+                <img src="https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=800&q=80" alt="" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" />
+              </div>
+              <div class="p-5">
+                <h3 class="font-semibold leading-snug text-neutral-900">
+                  Checklist perlengkapan sunrise di Penanjakan Bromo
+                </h3>
+                <p class="mt-2 text-sm text-neutral-400">August 02, 2023</p>
+              </div>
+            </article>
+            <article class="group overflow-hidden rounded-2xl border border-neutral-100 bg-white shadow-sm transition hover:shadow-md">
+              <div class="aspect-[16/10] overflow-hidden bg-neutral-100">
+                <img src="https://images.unsplash.com/photo-1506197607622-ef57fa5f4938?w=800&q=80" alt="" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" />
+              </div>
+              <div class="p-5">
+                <h3 class="font-semibold leading-snug text-neutral-900">
+                  Rute Malang–Bromo: estimasi waktu &amp; istirahat aman
+                </h3>
+                <p class="mt-2 text-sm text-neutral-400">July 21, 2023</p>
+              </div>
+            </article>
+            <article class="group overflow-hidden rounded-2xl border border-neutral-100 bg-white shadow-sm transition hover:shadow-md">
+              <div class="aspect-[16/10] overflow-hidden bg-neutral-100">
+                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80" alt="" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" />
+              </div>
+              <div class="p-5">
+                <h3 class="font-semibold leading-snug text-neutral-900">
+                  Tips foto landscape saat kabut tipis di lautan pasir
+                </h3>
+                <p class="mt-2 text-sm text-neutral-400">June 10, 2023</p>
+              </div>
+            </article>
+            <article class="group overflow-hidden rounded-2xl border border-neutral-100 bg-white shadow-sm transition hover:shadow-md">
+              <div class="aspect-[16/10] overflow-hidden bg-neutral-100">
+                <img src="https://images.unsplash.com/photo-1449452198679-05c7fd30f416?w=800&q=80" alt="" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" />
+              </div>
+              <div class="p-5">
+                <h3 class="font-semibold leading-snug text-neutral-900">
+                  Kuliner Malang yang wajib dicoba setelah tur gunung
+                </h3>
+                <p class="mt-2 text-sm text-neutral-400">May 28, 2023</p>
+              </div>
+            </article>
+            <article class="group overflow-hidden rounded-2xl border border-neutral-100 bg-white shadow-sm transition hover:shadow-md">
+              <div class="aspect-[16/10] overflow-hidden bg-neutral-100">
+                <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80" alt="" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" />
+              </div>
+              <div class="p-5">
+                <h3 class="font-semibold leading-snug text-neutral-900">
+                  traveling layover itinerary generator countries flight routes
+                </h3>
+                <p class="mt-2 text-sm text-neutral-400">April 14, 2023</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Galeri ========== -->
+      <section id="galeri" class="scroll-mt-28 bg-neutral-50/80 px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="max-w-2xl">
+            <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">Galeri Pelanggan</h2>
+            <p class="mt-2 text-sm text-neutral-500 sm:text-base">
+              Momen bahagia traveler kami—dari puncak Bromo hingga sudut kota yang cozy.
+            </p>
+          </div>
+
+          <div class="columns-2 gap-4 sm:columns-3 lg:columns-4">
+            <figure class="gallery-masonry-brick mb-4 overflow-hidden rounded-2xl bg-neutral-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=600&q=80" alt="" class="w-full object-cover" style="aspect-ratio: 3/5" />
+            </figure>
+            <figure class="gallery-masonry-brick mb-4 overflow-hidden rounded-2xl bg-neutral-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&q=80" alt="" class="w-full object-cover" style="aspect-ratio: 4/3" />
+            </figure>
+            <figure class="gallery-masonry-brick mb-4 overflow-hidden rounded-2xl bg-neutral-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=600&q=80" alt="" class="w-full object-cover" style="aspect-ratio: 1/1" />
+            </figure>
+            <figure class="gallery-masonry-brick mb-4 overflow-hidden rounded-2xl bg-neutral-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80" alt="" class="w-full object-cover" style="aspect-ratio: 16/10" />
+            </figure>
+            <figure class="gallery-masonry-brick mb-4 overflow-hidden rounded-2xl bg-neutral-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600&q=80" alt="" class="w-full object-cover" style="aspect-ratio: 3/4" />
+            </figure>
+            <figure class="gallery-masonry-brick mb-4 overflow-hidden rounded-2xl bg-neutral-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&q=80" alt="" class="w-full object-cover" style="aspect-ratio: 5/3" />
+            </figure>
+            <figure class="gallery-masonry-brick mb-4 overflow-hidden rounded-2xl bg-neutral-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?w=600&q=80" alt="" class="w-full object-cover" style="aspect-ratio: 1/1" />
+            </figure>
+            <figure class="gallery-masonry-brick mb-4 overflow-hidden rounded-2xl bg-neutral-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1504557973960-4fac9832008f?w=600&q=80" alt="" class="w-full object-cover" style="aspect-ratio: 2/3" />
+            </figure>
+            <figure class="gallery-masonry-brick mb-4 overflow-hidden rounded-2xl bg-neutral-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600&q=80" alt="" class="w-full object-cover" style="aspect-ratio: 4/3" />
+            </figure>
+            <figure class="gallery-masonry-brick mb-4 overflow-hidden rounded-2xl bg-neutral-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1499678329028-101435695a4e?w=600&q=80" alt="" class="w-full object-cover" style="aspect-ratio: 3/5" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Review ========== -->
+      <section id="review" class="scroll-mt-28 bg-white px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="max-w-2xl">
+            <h2 class="text-2xl font-bold text-neutral-900 sm:text-3xl">Review Pelanggan</h2>
+            <p class="mt-2 text-sm text-neutral-500 sm:text-base">
+              Cerita singkat dari mereka yang sudah mempercayakan perjalanan kepada kami.
+            </p>
+          </div>
+
+          <div class="relative mt-12 overflow-hidden pb-12">
+            <div id="review-track" class="flex transition-transform duration-500 ease-out">
+              <!-- slide 1 -->
+              <div
+                data-review-slide
+                class="grid min-w-0 shrink-0 flex-[0_0_100%] gap-8 px-1 md:grid-cols-3 md:px-0"
+              >
+                <div class="flex flex-col rounded-2xl border border-neutral-100 bg-neutral-50/50 p-6 shadow-sm">
+                  <p class="flex-1 italic leading-relaxed text-neutral-600">
+                    “Perjalanan sunrise Bromo luar biasa—driver on time, jeep nyaman, dan guide
+                    sangat membantu spot foto terbaik.”
+                  </p>
+                  <div class="mt-6 flex items-center gap-3 border-t border-neutral-100 pt-5">
+                    <img
+                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&q=80"
+                      alt=""
+                      class="h-11 w-11 rounded-full object-cover ring-2 ring-white"
+                      width="44"
+                      height="44"
+                    />
+                    <div>
+                      <p class="font-semibold text-neutral-900">Sarah Wijaya</p>
+                      <p class="text-sm text-neutral-500">Customer • Jakarta</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col rounded-2xl border border-neutral-100 bg-neutral-50/50 p-6 shadow-sm">
+                  <p class="flex-1 italic leading-relaxed text-neutral-600">
+                    “Paket Malang–Batu ramah anak. Hotel sesuai foto, makan lokal enak, itinerary
+                    tidak terburu-buru.”
+                  </p>
+                  <div class="mt-6 flex items-center gap-3 border-t border-neutral-100 pt-5">
+                    <img
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&q=80"
+                      alt=""
+                      class="h-11 w-11 rounded-full object-cover ring-2 ring-white"
+                      width="44"
+                      height="44"
+                    />
+                    <div>
+                      <p class="font-semibold text-neutral-900">Andi Prasetyo</p>
+                      <p class="text-sm text-neutral-500">Customer • Surabaya</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col rounded-2xl border border-neutral-100 bg-neutral-50/50 p-6 shadow-sm">
+                  <p class="flex-1 italic leading-relaxed text-neutral-600">
+                    “Komunikasi WA cepat, harga transparan tanpa biaya tersembunyi. Recommended untuk
+                    rombongan kantor.”
+                  </p>
+                  <div class="mt-6 flex items-center gap-3 border-t border-neutral-100 pt-5">
+                    <img
+                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=96&q=80"
+                      alt=""
+                      class="h-11 w-11 rounded-full object-cover ring-2 ring-white"
+                      width="44"
+                      height="44"
+                    />
+                    <div>
+                      <p class="font-semibold text-neutral-900">Lina Marlina</p>
+                      <p class="text-sm text-neutral-500">Customer • Bandung</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- slide 2 -->
+              <div
+                data-review-slide
+                class="grid min-w-0 shrink-0 flex-[0_0_100%] gap-8 px-1 md:grid-cols-3 md:px-0"
+              >
+                <div class="flex flex-col rounded-2xl border border-neutral-100 bg-neutral-50/50 p-6 shadow-sm">
+                  <p class="flex-1 italic leading-relaxed text-neutral-600">
+                    “First time ke Sewu—tracking aman, dokumentasi drone mantap. Guide sabar
+                    menunggu kami yang foto banyak.”
+                  </p>
+                  <div class="mt-6 flex items-center gap-3 border-t border-neutral-100 pt-5">
+                    <img
+                      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=96&q=80"
+                      alt=""
+                      class="h-11 w-11 rounded-full object-cover ring-2 ring-white"
+                      width="44"
+                      height="44"
+                    />
+                    <div>
+                      <p class="font-semibold text-neutral-900">Bagus Ramadhan</p>
+                      <p class="text-sm text-neutral-500">Customer • Yogyakarta</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col rounded-2xl border border-neutral-100 bg-neutral-50/50 p-6 shadow-sm">
+                  <p class="flex-1 italic leading-relaxed text-neutral-600">
+                    “Sewa mobil + driver ke bandara Juanda mulus. Mobil bersih, BBM jelas—bakal repeat
+                    order.”
+                  </p>
+                  <div class="mt-6 flex items-center gap-3 border-t border-neutral-100 pt-5">
+                    <img
+                      src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=96&q=80"
+                      alt=""
+                      class="h-11 w-11 rounded-full object-cover ring-2 ring-white"
+                      width="44"
+                      height="44"
+                    />
+                    <div>
+                      <p class="font-semibold text-neutral-900">Rani Putri</p>
+                      <p class="text-sm text-neutral-500">Customer • Malang</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col rounded-2xl border border-neutral-100 bg-neutral-50/50 p-6 shadow-sm">
+                  <p class="flex-1 italic leading-relaxed text-neutral-600">
+                    “Sunrise dingin tapi tim siapkan jaket cadangan dan air hangat. Detail kecil yang
+                    bikin nyaman.”
+                  </p>
+                  <div class="mt-6 flex items-center gap-3 border-t border-neutral-100 pt-5">
+                    <img
+                      src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=96&q=80"
+                      alt=""
+                      class="h-11 w-11 rounded-full object-cover ring-2 ring-white"
+                      width="44"
+                      height="44"
+                    />
+                    <div>
+                      <p class="font-semibold text-neutral-900">Kevin Hartono</p>
+                      <p class="text-sm text-neutral-500">Customer • Bali</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="review-dots" class="absolute bottom-0 left-1/2 flex -translate-x-1/2 gap-2"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-neutral-100 bg-neutral-50 py-10 text-center text-sm text-neutral-500">
+      <div class="mx-auto max-w-7xl px-4">
+        <p>&copy; <span id="year"></span> Paling Hobby Traveling. Semua hak dilindungi.</p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script src="./js/profile-menu.js"></script>
+    <script src="js/main.js"></script>
+    <script src="./js/api-config.js"></script>
+    <script src="./js/home-dynamic.js"></script>
+    <script src="./js/pageview-tracker.js"></script>
+  </body>
+</html>

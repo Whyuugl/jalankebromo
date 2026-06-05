@@ -1,0 +1,57 @@
+jalankebromo/
+├── index.html              Halaman landing (semua section & markup)
+├── artikel.html            Halaman daftar artikel
+├── artikel-detail.html     Halaman detail artikel (layout seperti jalankebromo.com)
+├── paket-wisata.html       Halaman daftar paket wisata (layout seperti screenshot)
+├── detail-paket.html       Halaman detail paket/tour (gallery + booking + review)
+├── sewa-mobil.html         Halaman sewa mobil (filter + list mobil)
+├── form-pemesanan-paket.html   Form pemesanan paket wisata (detail tagihan + booking)
+├── cek-pesanan.html            Cari pesanan paket (form input nama)
+├── reschedule.html             Reschedule tanggal (layout seperti screenshot)
+├── form-sewa-mobil.html        Form pemesanan sewa mobil (detail tagihan + booking)
+├── admin/                  Panel admin (frontend only, login demo)
+│   ├── index.html          Redirect ke login / dashboard
+│   ├── login.html          Halaman login admin
+│   ├── dashboard.html      Ringkasan statistik & pesanan terbaru
+│   ├── pesanan.html        Daftar pesanan
+│   ├── pesanan-detail.html Detail satu pesanan
+│   ├── paket.html          Kelola paket wisata
+│   ├── paket-form.html     Form tambah/edit paket
+│   ├── artikel.html        Kelola artikel blog
+│   ├── artikel-form.html   Form tambah/edit artikel
+│   ├── mobil.html          Kelola sewa mobil
+│   ├── mobil-form.html     Form tambah/edit mobil
+│   ├── pengaturan.html     Pengaturan kontak & brand
+│   ├── css/admin.css       Gaya sidebar & badge admin
+│   └── js/
+│       ├── admin-auth.js   Session demo (localStorage)
+│       ├── admin-shell.js  Layout sidebar + proteksi halaman
+│       └── admin-ui.js     Hapus baris & simpan form (demo)
+├── backend/                API Express + serve website (port 3000)
+│   ├── package.json
+│   ├── .env.example
+│   └── src/                routes public + admin, koneksi PostgreSQL
+├── database/               PostgreSQL (pgAdmin)
+│   ├── README.md           Cara buat DB & jalankan skrip
+│   ├── schema.sql          Tabel + enum + view
+│   └── seed.sql            Data contoh (admin, paket, pesanan, dll.)
+├── STRUKTUR.txt            Ringkasan struktur folder (file ini)
+├── css/
+│   └── custom.css          Tambahan kecil (hero perspective, masonry break-inside)
+├── js/
+│   ├── main.js             Carousel "Review Pelanggan" + titik navigasi
+│   ├── paket-wisata.js     Filter durasi + pencarian paket wisata
+│   ├── detail-paket.js     Ganti preview foto (thumbnail gallery)
+│   ├── sewa-mobil.js       Filter pencarian + kapasitas sewa mobil
+│   ├── form-pemesanan.js   Hitung subtotal (hari x orang) + DP 30%
+│   ├── api-config.js       Base URL API + jkFetch()
+│   ├── artikel-list.js     Daftar artikel dari API
+│   ├── artikel-detail.js   Detail artikel dari API
+│   ├── cek-pesanan.js      Cari pesanan by nama
+│   └── profile-menu.js     Dropdown profil (Pesanan Saya, Reschedule)
+└── assets/
+    └── images/
+        └── referensi-desain.png   Cuplikan desain referensi (opsional)
+
+Cara buka: buka index.html di browser (double-click atau Live Server).
+Tailwind memakai CDN (tanpa npm install).

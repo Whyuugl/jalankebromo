@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paket Wisata - Admin Jalankebromo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: { colors: { brand: { orange: '#F28C28' } }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
+    </script>
+  </head>
+  <body data-admin-page="paket" data-admin-title="Paket Wisata">
+    <div id="admin-page-content">
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+        <input type="search" placeholder="Cari paket..." class="rounded-lg border border-neutral-200 px-3 py-2 text-sm sm:w-64" />
+        <a href="./paket-form.html" class="rounded-lg bg-brand-orange px-4 py-2 text-sm font-semibold text-white hover:brightness-95">+ Tambah Paket</a>
+      </div>
+      <div class="overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm">
+        <table class="admin-table w-full text-sm">
+          <thead class="border-b bg-neutral-50 text-left">
+            <tr><th class="px-5 py-3">Nama Paket</th><th class="px-5 py-3">Durasi</th><th class="px-5 py-3">Harga</th><th class="px-5 py-3">Status</th><th class="px-5 py-3 text-right">Aksi</th></tr>
+          </thead>
+          <tbody class="divide-y">
+            <tr><td colspan="5" class="px-5 py-8 text-center text-sm text-neutral-500">Memuat...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="../js/api-config.js"></script>
+    <script src="./js/admin-api.js"></script>
+    <script src="./js/admin-toast.js"></script>
+    <script src="./js/admin-auth.js"></script>
+    <script src="./js/admin-shell.js"></script>
+    <script src="./js/admin-pages.js"></script>
+    <script src="./js/admin-ui.js"></script>
+  </body>
+</html>

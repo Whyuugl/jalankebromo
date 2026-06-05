@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Admin Jalankebromo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/admin.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: { colors: { brand: { orange: '#F28C28' } }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
+    </script>
+  </head>
+  <body data-admin-page="dashboard" data-admin-title="Dashboard">
+    <div id="admin-page-content">
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+        <p class="text-sm text-neutral-500">Ringkasan aktivitas website.</p>
+        <div class="flex flex-wrap gap-2">
+          <a href="./reschedule-requests.html" class="rounded-lg border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-semibold text-amber-800 hover:bg-amber-100">Reschedule (<span id="dash-pending-count">0</span>)</a>
+          <a href="./pesanan.html" class="rounded-lg bg-brand-orange px-4 py-2 text-sm font-semibold text-white hover:brightness-95">Semua Pesanan</a>
+        </div>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+        <div class="rounded-xl border border-neutral-200 bg-white p-5 shadow-sm"><p class="text-sm text-neutral-500">Pesanan Bulan Ini</p><p class="mt-2 text-3xl font-bold">—</p></div>
+        <div class="rounded-xl border border-neutral-200 bg-white p-5 shadow-sm"><p class="text-sm text-neutral-500">Pendapatan Terbayar</p><p class="mt-2 text-3xl font-bold text-emerald-600">—</p></div>
+        <div class="rounded-xl border border-neutral-200 bg-white p-5 shadow-sm"><p class="text-sm text-neutral-500">Paket Aktif</p><p class="mt-2 text-3xl font-bold">—</p></div>
+        <div class="rounded-xl border border-neutral-200 bg-white p-5 shadow-sm"><p class="text-sm text-neutral-500">Artikel Terbit</p><p class="mt-2 text-3xl font-bold">—</p></div>
+        <a href="./reschedule-requests.html" class="rounded-xl border border-amber-200 bg-amber-50/80 p-5 shadow-sm transition hover:border-amber-300">
+          <p class="text-sm font-medium text-amber-900">Ajuan Reschedule</p>
+          <p id="dash-reschedule-card-count" class="mt-2 text-3xl font-bold text-amber-800">—</p>
+          <p class="mt-1 text-xs text-amber-700">Menunggu persetujuan</p>
+        </a>
+      </div>
+      <div class="mt-8 overflow-hidden rounded-xl border border-amber-200 bg-white shadow-sm">
+        <div class="flex items-center justify-between border-b border-amber-100 bg-amber-50/50 px-5 py-4">
+          <p class="font-semibold text-amber-900">Pengajuan Reschedule Terbaru</p>
+          <a href="./reschedule-requests.html" class="text-sm font-medium text-brand-orange hover:underline">Kelola semua</a>
+        </div>
+        <table class="admin-table w-full text-sm">
+          <thead class="bg-neutral-50 text-left">
+            <tr>
+              <th class="px-5 py-3">Kode Pesanan</th>
+              <th class="px-5 py-3">Nama</th>
+              <th class="px-5 py-3">Tanggal Baru</th>
+              <th class="px-5 py-3 text-right">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="dash-reschedule-tbody" class="divide-y">
+            <tr><td colspan="4" class="px-5 py-6 text-center text-sm text-neutral-500">Memuat...</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-8 grid gap-6 lg:grid-cols-2">
+        <div class="overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm">
+          <div class="border-b px-5 py-4 font-semibold">Pesanan Terbaru</div>
+          <table class="admin-table w-full text-sm">
+            <thead class="bg-neutral-50 text-left"><tr><th class="px-5 py-3">ID</th><th class="px-5 py-3">Pelanggan</th><th class="px-5 py-3">Item</th><th class="px-5 py-3">Status</th></tr></thead>
+            <tbody id="dash-orders-tbody" class="divide-y">
+              <tr><td class="px-5 py-3 font-medium">#JK-1042</td><td class="px-5 py-3">Muhammad S.</td><td class="px-5 py-3">Open Trip Bromo</td><td class="px-5 py-3"><span class="admin-badge admin-badge--paid">Lunas DP</span></td></tr>
+              <tr><td class="px-5 py-3 font-medium">#JK-1041</td><td class="px-5 py-3">Aulia R.</td><td class="px-5 py-3">Malang 3D2N</td><td class="px-5 py-3"><span class="admin-badge admin-badge--pending">Menunggu</span></td></tr>
+              <tr><td class="px-5 py-3 font-medium">#JK-1040</td><td class="px-5 py-3">Rizki P.</td><td class="px-5 py-3">Sewa Avanza</td><td class="px-5 py-3"><span class="admin-badge admin-badge--paid">Lunas DP</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="rounded-xl border border-neutral-200 bg-white p-5 shadow-sm">
+          <p class="mb-4 font-semibold">Aksi Cepat</p>
+          <div class="grid gap-3 sm:grid-cols-2">
+            <a href="./paket-form.html" class="rounded-lg border p-4 hover:border-brand-orange hover:bg-orange-50/50"><p class="font-semibold">+ Paket Baru</p></a>
+            <a href="./artikel-form.html" class="rounded-lg border p-4 hover:border-brand-orange hover:bg-orange-50/50"><p class="font-semibold">+ Artikel Baru</p></a>
+            <a href="./mobil-form.html" class="rounded-lg border p-4 hover:border-brand-orange hover:bg-orange-50/50"><p class="font-semibold">+ Mobil Baru</p></a>
+            <a href="./pengaturan.html" class="rounded-lg border p-4 hover:border-brand-orange hover:bg-orange-50/50"><p class="font-semibold">Pengaturan</p></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/api-config.js"></script>
+    <script src="./js/admin-api.js"></script>
+    <script src="./js/admin-toast.js"></script>
+    <script src="./js/admin-auth.js"></script>
+    <script src="./js/admin-shell.js"></script>
+    <script src="./js/admin-pages.js"></script>
+    <script src="./js/admin-ui.js"></script>
+  </body>
+</html>

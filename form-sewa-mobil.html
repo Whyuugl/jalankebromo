@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Pemesanan Sewa Mobil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { brand: { orange: '#F28C28' } },
+            fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-white font-sans text-neutral-800 antialiased">
+    <header class="sticky top-0 z-50 border-b border-neutral-100 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <a href="./index.html" class="flex items-center gap-2.5" aria-label="Beranda">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-orange text-white shadow-sm ring-4 ring-orange-50">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4L4 20h16L12 4zm0 4.5l5.2 9.5H6.8L12 8.5z" fill="currentColor" opacity=".95"/></svg>
+          </span>
+        </a>
+        <nav class="ml-auto mr-6 hidden items-center gap-8 md:flex" aria-label="Utama">
+          <a href="./index.html" class="text-sm font-medium text-neutral-700 transition-colors hover:text-brand-orange">Home</a>
+          <a href="./paket-wisata.html" class="text-sm font-medium text-neutral-700 transition-colors hover:text-brand-orange">Paket Wisata Bromo Malang</a>
+          <a href="./sewa-mobil.html" class="text-sm font-medium text-brand-orange transition-colors hover:text-brand-orange">Sewa Mobil Malang</a>
+          <a href="./artikel.html" class="text-sm font-medium text-neutral-700 transition-colors hover:text-brand-orange">Artikel</a>
+        </nav>
+        <div class="relative shrink-0" data-profile-menu-wrap>
+          <button type="button" data-profile-menu-trigger class="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-neutral-600 transition hover:border-brand-orange hover:text-brand-orange" aria-label="Profil" aria-expanded="false" aria-haspopup="true">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          </button>
+          <div data-profile-menu-panel role="menu" class="absolute right-0 top-full z-[60] mt-2 hidden min-w-[200px] overflow-hidden rounded-xl border border-neutral-200 bg-white py-1 shadow-lg">
+            <a role="menuitem" href="./cek-pesanan.html" class="block px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50">Pesanan Saya</a>
+            <a role="menuitem" href="./reschedule.html" class="block px-4 py-2.5 text-sm text-neutral-700 transition hover:bg-neutral-50">Reschedule</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <p id="mobil-summary" class="mb-2 hidden text-lg font-semibold text-neutral-800"></p>
+      <p id="product-title" class="mb-4 hidden text-sm text-neutral-500"></p>
+      <div class="grid gap-8 lg:grid-cols-[1fr,320px]">
+        <section class="rounded-lg border border-neutral-200 bg-white p-8 shadow-sm">
+          <h1 class="text-lg font-semibold text-neutral-700">Detail Tagihan</h1>
+
+          <div class="mt-6 grid gap-5 sm:grid-cols-2">
+            <div>
+              <label class="text-xs font-semibold text-neutral-700">Nama Depan</label>
+              <input class="mt-2 w-full rounded-md border border-neutral-200 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none" placeholder="First Name*" />
+            </div>
+            <div>
+              <label class="text-xs font-semibold text-neutral-700">Nama Belakang</label>
+              <input class="mt-2 w-full rounded-md border border-neutral-200 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none" placeholder="Last Name*" />
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <label class="text-xs font-semibold text-neutral-700">Email</label>
+            <input class="mt-2 w-full rounded-md border border-neutral-200 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none" placeholder="Email" />
+          </div>
+          <div class="mt-5">
+            <label class="text-xs font-semibold text-neutral-700">Kota</label>
+            <input class="mt-2 w-full rounded-md border border-neutral-200 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none" placeholder="Kota" />
+          </div>
+          <div class="mt-5">
+            <label class="text-xs font-semibold text-neutral-700">No Telepon</label>
+            <input class="mt-2 w-full rounded-md border border-neutral-200 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none" placeholder="No Telepon" />
+          </div>
+
+          <div class="mt-7">
+            <label class="text-xs font-semibold text-neutral-700">Catatan Tambahan (opsional)</label>
+            <textarea class="mt-2 h-44 w-full resize-none rounded-md border border-neutral-200 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none" placeholder="Contoh: Alamat Penjemputan"></textarea>
+          </div>
+        </section>
+
+        <aside class="h-fit rounded-lg border border-neutral-200 bg-white shadow-sm">
+          <div class="border-b border-neutral-200 p-5">
+            <h2 class="text-sm font-semibold text-neutral-700">Booking Sewa Mobil</h2>
+          </div>
+          <div class="p-5">
+            <label class="text-xs font-semibold text-neutral-700">Tanggal Mulai Sewa</label>
+            <input id="trip-date" type="date" class="mt-2 w-full rounded-md border border-neutral-200 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none" />
+
+            <label class="mt-4 block text-xs font-semibold text-neutral-700">Jumlah Hari</label>
+            <input id="days" type="number" min="1" value="1" class="mt-2 w-full rounded-md border border-neutral-200 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none" />
+
+            <div class="mt-4 rounded-md bg-neutral-50 px-3 py-2 text-sm text-neutral-600">
+              <p><span class="font-medium">Kapasitas:</span> <span id="car-capacity">—</span></p>
+              <p class="mt-1"><span class="font-medium">Harga:</span> <span id="price-per-day">—</span> / hari</p>
+            </div>
+
+            <p class="mt-6 text-center text-xs text-neutral-400">Subtotal</p>
+            <p id="subtotal" class="mt-2 text-center text-3xl font-bold text-emerald-600">—</p>
+            <p id="price-formula" class="mt-1 text-center text-xs text-neutral-500"></p>
+
+            <button id="confirm-booking" type="button" class="mt-6 w-full rounded-md bg-brand-orange px-4 py-3 text-sm font-semibold text-white hover:brightness-95">
+              Confirm Booking
+            </button>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="mt-20 bg-white pb-10 pt-12">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-3 lg:px-8">
+        <div class="max-w-xs">
+          <a href="./index.html" class="flex items-center gap-2">
+            <span class="flex h-8 w-8 items-center justify-center rounded-full bg-brand-orange text-white">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 4L4 20h16L12 4z" fill="currentColor" />
+              </svg>
+            </span>
+          </a>
+          <p class="mt-4 text-xs leading-relaxed text-neutral-500">
+            Jalankebromo.com adalah situs resmi dari PT. Jalankebromo Tour Organizer, sejak 2014 menjadi referensi
+            wisatawan dan seluruh Indonesia untuk merencanakan dan melaksanakan perjalanan ke Bromo.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-base font-medium text-neutral-700">Discover</h3>
+          <ul class="mt-4 space-y-2 text-sm text-neutral-600">
+            <li><a href="./index.html" class="hover:text-brand-orange">Home</a></li>
+            <li><a href="./paket-wisata.html" class="hover:text-brand-orange">Paket Wisata Bromo Malang</a></li>
+            <li><a href="./sewa-mobil.html" class="hover:text-brand-orange">Sewa Mobil Malang</a></li>
+            <li><a href="./artikel.html" class="hover:text-brand-orange">Artikel</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-base font-medium text-neutral-700">Contact</h3>
+          <div class="mt-4 flex items-center gap-2.5">
+            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-orange-100 text-brand-orange">◉</span>
+            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-orange-100 text-brand-orange">◉</span>
+            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-orange-100 text-brand-orange">◉</span>
+            <span class="flex h-6 w-6 items-center justify-center rounded-full bg-orange-100 text-brand-orange">◉</span>
+          </div>
+          <p class="mt-4 text-sm text-neutral-500">Email : office@jalankebromo.com</p>
+          <p class="mt-2 text-sm text-neutral-500">Phone : +6281323445911</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/profile-menu.js"></script>
+    <script src="./js/api-config.js"></script>
+    <script src="./js/form-pemesanan.js"></script>
+  </body>
+</html>
