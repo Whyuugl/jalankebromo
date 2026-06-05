@@ -1,8 +1,15 @@
+const dns = require('dns');
 const { Pool } = require('pg');
+
+// Railway/cloud sering gagal ke Supabase direct (IPv6 ENETUNREACH) — prioritaskan IPv4
+if (dns.setDefaultResultOrder) {
+  dns.setDefaultResultOrder('ipv4first');
+}
 
 let connectionString = process.env.DATABASE_URL || '';
 
-const isSupabase = connectionString.includes('supabase.co');
+const isSupabase =
+  connectionString.includes('supabase.co') || connectionString.includes('pooler.supabase.com');
 const needsSsl =
   isSupabase ||
   process.env.DATABASE_SSL === 'true' ||
@@ -22,6 +29,7 @@ if (needsSsl) {
   poolConfig.ssl = { rejectUnauthorized: false };
 }
 
+// Supabase pooler (port 6543) — wajib untuk Railway/Vercel
 if (connectionString.includes('pooler.supabase.com')) {
   poolConfig.max = Number(process.env.PG_POOL_MAX) || 10;
 }
