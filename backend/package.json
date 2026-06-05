@@ -11,6 +11,9 @@
     "db:migrate": "node scripts/migrate.js",
     "db:views": "node scripts/ensure-views.js"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
