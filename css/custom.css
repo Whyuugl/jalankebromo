@@ -10,3 +10,232 @@
 .article-body h2 {
   scroll-margin-top: 6rem;
 }
+
+/* Mobile / tablet drawer nav (halaman user) */
+body.site-drawer-open {
+  overflow: hidden;
+}
+
+.site-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.site-drawer.is-open {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.site-drawer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 0.45);
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+
+.site-drawer.is-open .site-drawer__backdrop {
+  opacity: 1;
+}
+
+.site-drawer__panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: min(20rem, 78vw);
+  max-width: 85vw;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 8px 0 32px rgb(0 0 0 / 0.12);
+  transform: translateX(-100%);
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.site-drawer.is-open .site-drawer__panel {
+  transform: translateX(0);
+}
+
+.site-drawer__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1.25rem 1rem 1rem;
+  border-bottom: 1px solid rgb(245 245 245);
+}
+
+.site-drawer__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.site-drawer__close {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(229 229 229);
+  background: #fff;
+  color: rgb(82 82 82);
+  cursor: pointer;
+}
+
+.site-drawer__close:hover {
+  border-color: #f28c28;
+  color: #f28c28;
+}
+
+.site-drawer__nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem 0.5rem;
+}
+
+.site-drawer__extra {
+  border-top: 1px solid rgb(245 245 245);
+  padding: 0.75rem 0.5rem 1.25rem;
+}
+
+.site-drawer__link {
+  display: block;
+  padding: 0.875rem 1rem;
+  border-radius: 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: rgb(64 64 64);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.site-drawer__link:hover {
+  background: rgb(255 247 237);
+  color: #f28c28;
+}
+
+.site-drawer__link.is-active {
+  background: rgb(255 247 237);
+  color: #f28c28;
+  font-weight: 600;
+}
+
+.site-drawer__link--sub {
+  font-size: 0.875rem;
+  color: rgb(82 82 82);
+}
+
+@media (min-width: 1024px) {
+  .site-drawer {
+    display: none !important;
+  }
+}
+
+/* Detail paket */
+.pkg-feature-item {
+  text-align: center;
+}
+
+.pkg-feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #737373;
+  margin-bottom: 0.5rem;
+}
+
+.pkg-related-track {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.pkg-related-card {
+  scroll-snap-align: start;
+  width: 14rem;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.15s;
+}
+
+.pkg-related-card:hover {
+  opacity: 0.9;
+}
+
+.pkg-related-card:hover .text-neutral-900 {
+  color: #f28c28;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Modal ulasan paket */
+.review-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease, visibility 0.25s;
+}
+
+.review-modal.is-open {
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+}
+
+.review-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 0.5);
+}
+
+.review-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 28rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.review-modal__close {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: rgb(163 163 163);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+.review-modal__close:hover {
+  color: rgb(64 64 64);
+}
+
+body.review-modal-open {
+  overflow: hidden;
+}

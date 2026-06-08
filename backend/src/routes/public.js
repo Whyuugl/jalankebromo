@@ -91,6 +91,36 @@ router.get('/packages/:slug', async (req, res) => {
   });
 });
 
+router.post('/packages/:slug/reviews', async (req, res) => {
+  const b = req.body || {};
+  const name = (b.customerName || b.customer_name || '').trim();
+  const comment = (b.comment || '').trim();
+  const rating = Number(b.rating);
+
+  if (!name || name.length < 2) {
+    return res.status(400).json({ error: 'Nama wajib diisi' });
+  }
+  if (!comment || comment.length < 10) {
+    return res.status(400).json({ error: 'Ulasan minimal 10 karakter' });
+  }
+  if (!rating || rating < 1 || rating > 5) {
+    return res.status(400).json({ error: 'Rating 1–5 wajib diisi' });
+  }
+
+  const { rows } = await query(
+    `SELECT id FROM packages WHERE slug = $1 AND publish_status = 'published'`,
+    [req.params.slug]
+  );
+  if (!rows.length) return res.status(404).json({ error: 'Paket tidak ditemukan' });
+
+  await query(
+    `INSERT INTO reviews (package_id, customer_name, rating, comment) VALUES ($1, $2, $3, $4)`,
+    [rows[0].id, name, rating, comment]
+  );
+
+  res.status(201).json({ success: true, message: 'Ulasan berhasil dikirim' });
+});
+
 router.get('/cars', async (req, res) => {
   const q = (req.query.q || '').trim().toLowerCase();
 
@@ -174,12 +204,21 @@ router.get('/articles/:slug', async (req, res) => {
   if (!rows.length) return res.status(404).json({ error: 'Artikel tidak ditemukan' });
 
   const article = rows[0];
-  const tags = await query(
-    `SELECT t.name, t.slug FROM article_tags t
-     JOIN article_tag_map m ON m.tag_id = t.id
-     WHERE m.article_id = $1`,
-    [article.id]
-  );
+  const [tags, commentCount] = await Promise.all([
+    query(
+      `SELECT t.name, t.slug FROM article_tags t
+       JOIN article_tag_map m ON m.tag_id = t.id
+       WHERE m.article_id = $1`,
+      [article.id]
+    ),
+    query(
+      `SELECT COUNT(*)::int AS c FROM article_comments
+       WHERE article_id = $1 AND is_visible = TRUE`,
+      [article.id]
+    ).catch(function () {
+      return { rows: [{ c: 0 }] };
+    }),
+  ]);
 
   res.json({
     id: article.id,
@@ -190,7 +229,62 @@ router.get('/articles/:slug', async (req, res) => {
     coverImageUrl: article.cover_image_url,
     publishedAt: article.published_at,
     tags: tags.rows,
+    commentCount: commentCount.rows[0]?.c || 0,
   });
+});
+
+router.get('/articles/:slug/comments', async (req, res) => {
+  const { rows: articles } = await query(
+    `SELECT id FROM articles WHERE slug = $1 AND publish_status = 'published'`,
+    [req.params.slug]
+  );
+  if (!articles.length) return res.status(404).json({ error: 'Artikel tidak ditemukan' });
+
+  try {
+    const { rows } = await query(
+      `SELECT id, author_name, body, created_at FROM article_comments
+       WHERE article_id = $1 AND is_visible = TRUE
+       ORDER BY created_at DESC LIMIT 50`,
+      [articles[0].id]
+    );
+    res.json(rows);
+  } catch (e) {
+    if (e.code === '42P01') return res.json([]);
+    throw e;
+  }
+});
+
+router.post('/articles/:slug/comments', async (req, res) => {
+  const b = req.body || {};
+  const name = (b.authorName || b.author_name || '').trim();
+  const email = (b.authorEmail || b.author_email || '').trim() || null;
+  const body = (b.body || b.comment || '').trim();
+
+  if (!name || name.length < 2) {
+    return res.status(400).json({ error: 'Nama wajib diisi' });
+  }
+  if (!body || body.length < 5) {
+    return res.status(400).json({ error: 'Komentar minimal 5 karakter' });
+  }
+
+  const { rows: articles } = await query(
+    `SELECT id FROM articles WHERE slug = $1 AND publish_status = 'published'`,
+    [req.params.slug]
+  );
+  if (!articles.length) return res.status(404).json({ error: 'Artikel tidak ditemukan' });
+
+  try {
+    await query(
+      `INSERT INTO article_comments (article_id, author_name, author_email, body) VALUES ($1, $2, $3, $4)`,
+      [articles[0].id, name, email, body]
+    );
+    res.status(201).json({ success: true, message: 'Komentar berhasil dikirim' });
+  } catch (e) {
+    if (e.code === '42P01') {
+      return res.status(503).json({ error: 'Fitur komentar belum aktif di database. Jalankan npm run db:comments' });
+    }
+    throw e;
+  }
 });
 
 router.get('/orders/lookup', async (req, res) => {

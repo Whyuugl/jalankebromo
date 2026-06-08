@@ -30,7 +30,7 @@
             </svg>
           </span>
         </a>
-        <nav class="ml-auto mr-6 hidden items-center gap-8 md:flex" aria-label="Utama">
+        <nav class="ml-auto mr-6 hidden items-center gap-8 lg:flex" aria-label="Utama">
           <a href="./index.html" class="text-sm font-medium text-neutral-700 transition-colors hover:text-brand-orange">Home</a>
           <a href="./paket-wisata.html" class="text-sm font-medium text-neutral-700 transition-colors hover:text-brand-orange">Paket Wisata Bromo Malang</a>
           <a href="./sewa-mobil.html" class="text-sm font-medium text-neutral-700 transition-colors hover:text-brand-orange">Sewa Mobil Malang</a>
@@ -82,19 +82,30 @@
             </div>
           </section>
 
-          <section class="mt-12 rounded-2xl border border-neutral-100 bg-white px-6 py-8 shadow-sm sm:px-10">
-            <h2 class="text-lg font-semibold text-neutral-800">Leave A Reply</h2>
-            <p class="mt-1 text-sm text-neutral-500"><a href="#" class="text-brand-orange hover:underline">Batalkan balasan</a></p>
-            <p class="mt-3 text-xs text-neutral-500">Alamat email Anda tidak akan dipublikasikan. Ruas yang wajib ditandai *</p>
-            <form class="mt-6 space-y-4" action="#" method="post">
-              <div><label class="text-sm font-medium text-neutral-700">Komentar *</label><textarea rows="5" class="mt-2 w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none" placeholder="Tulis komentar..."></textarea></div>
-              <div class="grid gap-4 sm:grid-cols-2">
-                <div><label class="text-sm font-medium text-neutral-700">Nama *</label><input type="text" class="mt-2 w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none" /></div>
-                <div><label class="text-sm font-medium text-neutral-700">Email *</label><input type="email" class="mt-2 w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none" /></div>
+          <section id="article-comments-section" class="mt-12 rounded-2xl border border-neutral-100 bg-white px-6 py-8 shadow-sm sm:px-10">
+            <h2 class="text-lg font-semibold text-neutral-800">Komentar</h2>
+            <p class="mt-1 text-sm text-neutral-500">Punya pertanyaan atau pengalaman terkait artikel ini? Tulis di bawah.</p>
+
+            <div id="article-comments-list" class="mt-6 space-y-4"></div>
+            <p id="article-comments-empty" class="mt-4 hidden text-sm text-neutral-400">Belum ada komentar. Jadilah yang pertama!</p>
+
+            <form id="article-comment-form" class="mt-8 space-y-4 border-t border-neutral-100 pt-8">
+              <p id="article-comment-msg" class="hidden rounded-lg px-3 py-2 text-sm"></p>
+              <div>
+                <label class="text-sm font-medium text-neutral-700">Komentar *</label>
+                <textarea name="body" required minlength="5" rows="4" class="mt-2 w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none" placeholder="Tulis komentar…"></textarea>
               </div>
-              <div><label class="text-sm font-medium text-neutral-700">Situs Web</label><input type="url" class="mt-2 w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none" /></div>
-              <label class="flex items-start gap-2 text-sm text-neutral-600"><input type="checkbox" class="mt-1 rounded border-neutral-300 text-brand-orange focus:ring-brand-orange" /> Simpan nama, email, dan situs web saya pada peramban ini untuk komentar saya berikutnya.</label>
-              <button type="submit" class="rounded-lg bg-brand-orange px-6 py-2.5 text-sm font-semibold text-white hover:brightness-95">Kirim Komentar</button>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label class="text-sm font-medium text-neutral-700">Nama *</label>
+                  <input name="authorName" required maxlength="120" type="text" class="mt-2 w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none" placeholder="Nama Anda" />
+                </div>
+                <div>
+                  <label class="text-sm font-medium text-neutral-700">Email <span class="font-normal text-neutral-400">(tidak dipublikasikan)</span></label>
+                  <input name="authorEmail" type="email" class="mt-2 w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm focus:border-brand-orange focus:outline-none" placeholder="opsional" />
+                </div>
+              </div>
+              <button type="submit" id="article-comment-submit" class="rounded-lg bg-brand-orange px-6 py-2.5 text-sm font-semibold text-white hover:brightness-95">Kirim Komentar</button>
             </form>
           </section>
         </article>
@@ -164,6 +175,7 @@
     <script src="./js/api-config.js"></script>
     <script src="./js/article-content.js"></script>
     <script src="./js/profile-menu.js"></script>
+    <script src="./js/mobile-nav.js"></script>
     <script src="./js/artikel-detail.js"></script>
     <script src="./js/pageview-tracker.js"></script>
   </body>

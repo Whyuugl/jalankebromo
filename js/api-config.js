@@ -2,13 +2,25 @@
   'use strict';
 
   function apiBase() {
+    if (window.__JK_API_BASE__) {
+      return String(window.__JK_API_BASE__).replace(/\/$/, '');
+    }
+
     var meta = document.querySelector('meta[name="jk-api-base"]');
     if (meta && meta.content) {
       return meta.content.replace(/\/$/, '');
     }
+
     if (window.location.protocol === 'file:') {
       return 'http://localhost:3000/api';
     }
+
+    var host = window.location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1') {
+      return window.location.origin + '/api';
+    }
+
+    // Vercel / production: same-origin /api (di-proxy lewat vercel.json ke Railway)
     return window.location.origin + '/api';
   }
 

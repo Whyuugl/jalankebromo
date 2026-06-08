@@ -4,7 +4,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://jalankebromo-production.up.railway.app/api/:path*"
+      "destination": "https://GANTI-DENGAN-URL-RAILWAY-KAMU.up.railway.app/api/:path*"
     }
   ]
 }
